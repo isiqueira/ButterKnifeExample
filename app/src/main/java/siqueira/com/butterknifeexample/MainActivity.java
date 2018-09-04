@@ -2,29 +2,34 @@ package siqueira.com.butterknifeexample;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
+
 import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    @InjectView(R.id.email) EditText email;
-    @InjectView(R.id.password) EditText password;
+    @BindView(R.id.email) EditText email;
+    @BindView(R.id.password) EditText password;
+    @BindView(R.id.button) Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
 
     }
 
     @OnClick(R.id.button)
     void buttonClick() {
-        Toast.makeText(this, "email: " + email.getText() + " senha: " + password.getText(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, "email" + email.getText() + " password: " + password.getText(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText( MainActivity.class , "email: ", Toast.LENGTH_SHORT).show();
     }
 }
