@@ -30,6 +30,5 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.button)
     void buttonClick() {
         Toast.makeText(MainActivity.this, "email" + email.getText() + " password: " + password.getText(), Toast.LENGTH_SHORT).show();
-        //Toast.makeText( MainActivity.class , "email: ", Toast.LENGTH_SHORT).show();
     }
 }
